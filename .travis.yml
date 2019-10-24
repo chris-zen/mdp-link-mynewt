@@ -1,0 +1,26 @@
+language: c
+dist: xenial
+compiler:
+  - gcc
+  
+addons:
+  apt:
+    sources:
+      - sourceline: "ppa:team-gcc-arm-embedded/ppa"
+    packages:
+      - python3
+      - gcc-arm-embedded
+
+install:
+  - wget -qO - https://raw.githubusercontent.com/JuulLabs-OSS/debian-mynewt/master/mynewt.gpg.key | sudo apt-key add -
+  - echo "deb https://raw.githubusercontent.com/JuulLabs-OSS/debian-mynewt/master latest main" > mynewt.list
+  - sudo mv mynewt.list /etc/apt/sources.list.d/
+  - sudo apt-get update
+  - sudo apt install newt
+
+before_script:
+  - newt upgrade -f
+
+script:
+  - newt build nrf52_boot
+  - newt build nrf52_mdp_link

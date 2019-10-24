@@ -1,0 +1,21 @@
+pkg.name: apps/mdp-link
+pkg.type: app
+pkg.description: MDP Link
+pkg.author: "chris-zen"
+pkg.homepage: ""
+pkg.keywords:
+    - USB
+    - ESB
+    - MDP-XP
+    - MDP-P905
+    - MDP-M01
+
+pkg.deps:
+    - "@apache-mynewt-core/kernel/os"
+    - "@apache-mynewt-core/hw/hal"
+    - "@apache-mynewt-core/sys/console/stub"
+    - "@apache-mynewt-core/sys/log/stub"
+    - "@tinyusb/tinyusb"
+
+pkg.cflags: 
+    - "-I@tinyusb/src"
