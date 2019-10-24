@@ -17,6 +17,7 @@ install:
   - sudo mv mynewt.list /etc/apt/sources.list.d/
   - sudo apt-get update
   - sudo apt install newt
+  - newt version
 
 before_script:
   - newt upgrade -f
